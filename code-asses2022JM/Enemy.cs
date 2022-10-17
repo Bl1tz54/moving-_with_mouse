@@ -21,8 +21,8 @@ namespace code_asses2022JM
         {
             x = spacing;
             y = 10;
-            width = 20;
-            height = 20;
+            width = 25;
+            height = 25;
             //planetImage contains the plane1.png image
             alienImage = Properties.Resources.alien;
             alienRec = new Rectangle(x, y, width, height);

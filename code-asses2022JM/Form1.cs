@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace code_asses2022JM
@@ -27,6 +28,9 @@ namespace code_asses2022JM
         public FrmAlien()
         {
             InitializeComponent();
+
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
+
 
             for (int i = 0; i < 7; i++)
             {
@@ -68,10 +72,10 @@ namespace code_asses2022JM
         {
            // if (e.KeyData == Keys.Left) { left = true; }
             //if (e.KeyData == Keys.Right) { right = true; }
-            if (e.KeyData == Keys.Space)
-            {
-                missiles.Add(new Missile(player.playerRec));
-            }
+            //if (e.KeyData == Keys.Space)
+            //{
+            //    missiles.Add(new Missile(player.playerRec));
+            //}
         }
 
         //private void FrmAlien_KeyUp(object sender, KeyEventArgs e)
@@ -144,7 +148,7 @@ namespace code_asses2022JM
         private void PnlGame_MouseMove_1(object sender, MouseEventArgs e)
         {
             player.MovePlayer(e.X);
-            PnlGame.Invalidate();
+           // PnlGame.Invalidate();
 
         }
 
@@ -168,6 +172,15 @@ namespace code_asses2022JM
             }
             PnlGame.Invalidate();//makes the paint event fire to redraw the panel
      
+        }
+
+        private void PnlGame_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                // missiles.Add(new Missile(spaceship.spaceRec, spaceship.rotationAngle));
+                missiles.Add(new Missile(player.playerRec));
+            }
         }
 
         private void CheckLives()

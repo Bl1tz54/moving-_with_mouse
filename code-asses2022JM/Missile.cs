@@ -23,15 +23,15 @@ namespace code_asses2022JM
         {
             x = spaceRec.X; // move missile to middle of spaceship
             y = spaceRec.Y;
-            width = 20;
-            height = 20;
+            width = 25;
+            height = 25;
             missile = Properties.Resources.nukes;
             missileRec = new Rectangle(x, y, width, height);
         }
 
         public void draw(Graphics g)
         {
-            y -= 30;//speed of missile
+            y -= 5;//speed of missile
             missileRec = new Rectangle(x, y, width, height);
             g.DrawImage(missile, missileRec);
         }

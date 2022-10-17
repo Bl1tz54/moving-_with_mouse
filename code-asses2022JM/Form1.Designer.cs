@@ -64,6 +64,7 @@ namespace code_asses2022JM
             this.PnlGame.Size = new System.Drawing.Size(500, 400);
             this.PnlGame.TabIndex = 1;
             this.PnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlGame_Paint);
+            this.PnlGame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlGame_MouseDown);
             this.PnlGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlGame_MouseMove_1);
             // 
             // MnuStart
