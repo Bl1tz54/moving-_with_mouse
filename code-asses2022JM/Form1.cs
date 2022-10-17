@@ -154,24 +154,15 @@ namespace code_asses2022JM
             {
                 alien[i].MoveEnemy(rndmspeed);
 
-                if (player.playerRec.IntersectsWith(alien[i].alienRec))
+                //if a planet reaches the bottom of the Game Area reposition it at the top
+                if (alien[i].y >= PnlGame.Height)
                 {
+
                     //reset planet[i] back to top of panel
                     alien[i].y = 30; // set  y value of planetRec
                     lives -= 1;// lose a life
                     LblLives.Text = lives.ToString();// display number of lives
                     CheckLives();
-                }
-
-
-                //if a planet reaches the bottom of the Game Area reposition it at the top
-                if (alien[i].y >= PnlGame.Height)
-                {
-                    score += 1;//update the score
-                    LblScore.Text = score.ToString();// display score
-                    alien[i].y = 10;
-                    //random alien speed
-                    rndmspeed = yspeed.Next(5, 20);
                 }
 
             }
